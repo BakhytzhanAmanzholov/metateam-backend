@@ -2,6 +2,7 @@ package kz.metateam.hackday;
 
 import kz.metateam.hackday.models.specialties.Lesson;
 import kz.metateam.hackday.models.specialties.Specialization;
+import kz.metateam.hackday.models.specialties.University;
 import kz.metateam.hackday.models.test.Answer;
 import kz.metateam.hackday.models.test.Question;
 import kz.metateam.hackday.models.test.Type;
@@ -30,7 +31,7 @@ public class HackdayApplication {
 
     @Bean
     public CommandLineRunner run(TypeService typeService, QuestionService questionService, AnswerService answerService,
-            LessonService lessonService, SpecializationService specializationService) {
+            LessonService lessonService, SpecializationService specializationService, UniversityService universityService) {
         return args -> {
             Type realistic = typeService.save(new Type("Реалистический тип",
                     "Примеры профессий: Механик, электрик, инженер, фермер, зоотехник, геолог, гравер, агроном, садовод, автослесарь, шофер, пилот, полицейский, охранник (телохранитель), сварщик, стоматолог."));
@@ -193,6 +194,7 @@ public class HackdayApplication {
 
             Specialization sreda = specializationService.save(new Specialization("Экология", "Экология"));
             biology.getSpecializationSet().add(sreda);
+            
 
 
 
