@@ -8,6 +8,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 @Transactional
@@ -36,5 +38,10 @@ public class TypeServiceImpl implements TypeService {
     @Override
     public Type findById(Long aLong) {
         return typeRepository.findById(aLong).orElseThrow(IllegalArgumentException::new);
+    }
+
+    @Override
+    public List<Type> findAll() {
+        return typeRepository.findAll();
     }
 }

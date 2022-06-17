@@ -6,7 +6,9 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @NoArgsConstructor
@@ -19,7 +21,7 @@ public class Type {
     private String name;
     private String description;
     @OneToMany
-    List<Answer> answerList = new ArrayList<>();
+    Set<Answer> answerList = new HashSet<>();
 
     public Type(String name, String description) {
         this.name = name;

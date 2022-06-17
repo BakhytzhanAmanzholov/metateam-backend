@@ -8,12 +8,15 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 @Transactional
 @Slf4j
 public class AnswerServiceImpl implements AnswerService {
     private final AnswerRepository answerRepository;
+
 
 
     @Override
@@ -37,5 +40,10 @@ public class AnswerServiceImpl implements AnswerService {
     @Override
     public Answer findById(Long aLong) {
         return answerRepository.findById(aLong).orElseThrow(IllegalArgumentException::new);
+    }
+
+    @Override
+    public List<Answer> findAll() {
+        return answerRepository.findAll();
     }
 }

@@ -12,6 +12,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 
 @SpringBootApplication
 public class HackdayApplication {
@@ -169,6 +173,97 @@ public class HackdayApplication {
             Question question41 = questionService.save(new Question(answer41, answer41B));
             Question question42 = questionService.save(new Question(answer42, answer42B));
 
+
+//            realistic.getAnswerList().add(answer1);
+//            realistic.getAnswerList().add(answer2);
+//            realistic.getAnswerList().add(answer3);
+//            realistic.getAnswerList().add(answer4);
+//            realistic.getAnswerList().add(answer5);
+//            realistic.getAnswerList().add(answer16);
+//            realistic.getAnswerList().add(answer17);
+//            realistic.getAnswerList().add(answer18);
+//            realistic.getAnswerList().add(answer19);
+//            realistic.getAnswerList().add(answer21);
+//            realistic.getAnswerList().add(answer31);
+//            realistic.getAnswerList().add(answer32);
+//            realistic.getAnswerList().add(answer33);
+//            realistic.getAnswerList().add(answer34);
+//
+//            intelligent.getAnswerList().add(answer1B);
+//            intelligent.getAnswerList().add(answer6);
+//            intelligent.getAnswerList().add(answer7);
+//            intelligent.getAnswerList().add(answer8);
+//            intelligent.getAnswerList().add(answer9);
+//            intelligent.getAnswerList().add(answer16B);
+//            intelligent.getAnswerList().add(answer20);
+//            intelligent.getAnswerList().add(answer22);
+//            intelligent.getAnswerList().add(answer23);
+//            intelligent.getAnswerList().add(answer24);
+//            intelligent.getAnswerList().add(answer31B);
+//            intelligent.getAnswerList().add(answer35);
+//            intelligent.getAnswerList().add(answer36);
+//            intelligent.getAnswerList().add(answer37);
+//
+//            social.getAnswerList().add(answer2B);
+//            social.getAnswerList().add(answer6B);
+//            social.getAnswerList().add(answer10);
+//            social.getAnswerList().add(answer11);
+//            social.getAnswerList().add(answer12);
+//            social.getAnswerList().add(answer17B);
+//            social.getAnswerList().add(answer29B);
+//            social.getAnswerList().add(answer25);
+//            social.getAnswerList().add(answer26);
+//            social.getAnswerList().add(answer27);
+//            social.getAnswerList().add(answer36B);
+//            social.getAnswerList().add(answer38);
+//            social.getAnswerList().add(answer39);
+//            social.getAnswerList().add(answer41B);
+//            social.getAnswerList().add(answer26B);
+//
+//            conventional.getAnswerList().add(answer3B);
+//            conventional.getAnswerList().add(answer7B);
+//            conventional.getAnswerList().add(answer10B);
+//            conventional.getAnswerList().add(answer13);
+//            conventional.getAnswerList().add(answer14);
+//            conventional.getAnswerList().add(answer18B);
+//            conventional.getAnswerList().add(answer22B);
+//            conventional.getAnswerList().add(answer25B);
+//            conventional.getAnswerList().add(answer28);
+//            conventional.getAnswerList().add(answer29);
+//            conventional.getAnswerList().add(answer32B);
+//            conventional.getAnswerList().add(answer38B);
+//            conventional.getAnswerList().add(answer40);
+//            conventional.getAnswerList().add(answer42);
+//
+//            enterprising.getAnswerList().add(answer4B);
+//            enterprising.getAnswerList().add(answer8B);
+//            enterprising.getAnswerList().add(answer11B);
+//            enterprising.getAnswerList().add(answer13B);
+//            enterprising.getAnswerList().add(answer15);
+//            enterprising.getAnswerList().add(answer23B);
+//            enterprising.getAnswerList().add(answer28B);
+//            enterprising.getAnswerList().add(answer30);
+//            enterprising.getAnswerList().add(answer33B);
+//            enterprising.getAnswerList().add(answer35B);
+//            enterprising.getAnswerList().add(answer37B);
+//            enterprising.getAnswerList().add(answer39B);
+//            enterprising.getAnswerList().add(answer40B);
+//            enterprising.getAnswerList().add(answer20B);
+//
+//            artistic.getAnswerList().add(answer5B);
+//            artistic.getAnswerList().add(answer9B);
+//            artistic.getAnswerList().add(answer12B);
+//            artistic.getAnswerList().add(answer14B);
+//            artistic.getAnswerList().add(answer15B);
+//            artistic.getAnswerList().add(answer19B);
+//            artistic.getAnswerList().add(answer21B);
+//            artistic.getAnswerList().add(answer24B);
+//            artistic.getAnswerList().add(answer27B);
+//            artistic.getAnswerList().add(answer29B);
+//            artistic.getAnswerList().add(answer30B);
+//            artistic.getAnswerList().add(answer34B);
+//            artistic.getAnswerList().add(answer41);
+//            artistic.getAnswerList().add(answer42B);
         };
     }
 }
