@@ -1,5 +1,7 @@
 package kz.metateam.hackday;
 
+import kz.metateam.hackday.models.event.Category;
+import kz.metateam.hackday.models.event.Event;
 import kz.metateam.hackday.models.news.News;
 import kz.metateam.hackday.models.news.Tag;
 import kz.metateam.hackday.models.specialties.Lesson;
@@ -34,8 +36,16 @@ public class HackdayApplication {
 //    @Bean
 //    public CommandLineRunner run(TypeService typeService, QuestionService questionService, AnswerService answerService,
 //                                 LessonService lessonService, SpecializationService specializationService, UniversityService universityService, NewsService newsService,
-//                                 TagService tagService) {
+//                                 TagService tagService, CategoryService categoryService, EventService eventService) {
 //        return args -> {
+//            Category category1 = categoryService.save(new Category("Програмирование"));
+//            Event event1 = eventService.save(new Event("Хакатон", "Астана"));
+//            eventService.addCategoryToEvent(category1, event1);
+//
+//            Category category2 = categoryService.save(new Category("Математика"));
+//            Event event2 = eventService.save(new Event("Соревнование", "Астана"));
+//            eventService.addCategoryToEvent(category2, event2);
+
 //            Tag grants = tagService.save(new Tag("Гранты"));
 //            Tag aitu = tagService.save(new Tag("Astana IT"));
 //

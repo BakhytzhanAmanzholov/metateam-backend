@@ -21,4 +21,9 @@ public class Event {
 
     @ManyToMany
     Set<Category> categorySet = new HashSet<>();
+
+    public Event(String name, String city) {
+        this.name = name;
+        this.city = city;
+    }
 }
