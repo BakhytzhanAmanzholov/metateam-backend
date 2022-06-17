@@ -1,7 +1,7 @@
 package kz.metateam.hackday.service.implementation.test;
 
 import kz.metateam.hackday.models.test.Question;
-import kz.metateam.hackday.repository.test.QuestionRepository;
+import kz.metateam.hackday.repository.QuestionRepository;
 import kz.metateam.hackday.service.QuestionService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

@@ -1,9 +1,11 @@
 package kz.metateam.hackday;
 
+import kz.metateam.hackday.models.specialties.Lesson;
 import kz.metateam.hackday.models.test.Answer;
 import kz.metateam.hackday.models.test.Question;
 import kz.metateam.hackday.models.test.Type;
 import kz.metateam.hackday.service.AnswerService;
+import kz.metateam.hackday.service.LessonService;
 import kz.metateam.hackday.service.QuestionService;
 import kz.metateam.hackday.service.TypeService;
 import org.springframework.boot.CommandLineRunner;
@@ -29,7 +31,8 @@ public class HackdayApplication {
     }
 
     @Bean
-    public CommandLineRunner run(TypeService typeService, QuestionService questionService, AnswerService answerService) {
+    public CommandLineRunner run(TypeService typeService, QuestionService questionService, AnswerService answerService,
+            LessonService lessonService) {
         return args -> {
             Type realistic = typeService.save(new Type("Реалистический тип",
                     "Примеры профессий: Механик, электрик, инженер, фермер, зоотехник, геолог, гравер, агроном, садовод, автослесарь, шофер, пилот, полицейский, охранник (телохранитель), сварщик, стоматолог."));
@@ -173,6 +176,8 @@ public class HackdayApplication {
             Question question41 = questionService.save(new Question(answer41, answer41B));
             Question question42 = questionService.save(new Question(answer42, answer42B));
 
+
+            Lesson lesson = lessonService.save(new Lesson("Математика", ""));
 
 //            realistic.getAnswerList().add(answer1);
 //            realistic.getAnswerList().add(answer2);

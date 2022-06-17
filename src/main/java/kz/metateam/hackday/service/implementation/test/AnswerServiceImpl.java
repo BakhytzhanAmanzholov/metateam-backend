@@ -1,7 +1,7 @@
 package kz.metateam.hackday.service.implementation.test;
 
 import kz.metateam.hackday.models.test.Answer;
-import kz.metateam.hackday.repository.test.AnswerRepository;
+import kz.metateam.hackday.repository.AnswerRepository;
 import kz.metateam.hackday.service.AnswerService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -16,8 +16,6 @@ import java.util.List;
 @Slf4j
 public class AnswerServiceImpl implements AnswerService {
     private final AnswerRepository answerRepository;
-
-
 
     @Override
     public Answer save(Answer entity) {

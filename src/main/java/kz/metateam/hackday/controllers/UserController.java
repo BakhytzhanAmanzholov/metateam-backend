@@ -1,5 +1,6 @@
 package kz.metateam.hackday.controllers;
 
+import kz.metateam.hackday.models.Account;
 import kz.metateam.hackday.models.Role;
 import kz.metateam.hackday.models.test.Answer;
 import kz.metateam.hackday.models.test.Question;
@@ -11,6 +12,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -26,6 +29,25 @@ public class UserController {
     private final AnswerService answerService;
 
     private List<Long> longs = new ArrayList<>();
+
+    @GetMapping()
+    public ResponseEntity<?> profile(){
+        Account account = accountService.findByEmail(isLogged());
+        if(account == null){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Сначало зарегистрируйтесь");
+        }
+        return ResponseEntity.ok(account);
+    }
+
+    public String isLogged(){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String currentPrincipalName = authentication.getName();
+        log.info(currentPrincipalName);
+        if(!currentPrincipalName.equals("anonymousUser")){
+            return currentPrincipalName;
+        }
+        return "anonymousUser";
+    }
 
     @GetMapping("/test")
     public ResponseEntity<?> startTest(){
