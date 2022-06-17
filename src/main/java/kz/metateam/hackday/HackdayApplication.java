@@ -1,5 +1,7 @@
 package kz.metateam.hackday;
 
+import kz.metateam.hackday.models.news.News;
+import kz.metateam.hackday.models.news.Tag;
 import kz.metateam.hackday.models.specialties.Lesson;
 import kz.metateam.hackday.models.specialties.Specialization;
 import kz.metateam.hackday.models.specialties.University;
@@ -28,11 +30,24 @@ public class HackdayApplication {
     public static void main(String[] args) {
         SpringApplication.run(HackdayApplication.class, args);
     }
-//
+
 //    @Bean
 //    public CommandLineRunner run(TypeService typeService, QuestionService questionService, AnswerService answerService,
-//                                 LessonService lessonService, SpecializationService specializationService, UniversityService universityService) {
+//                                 LessonService lessonService, SpecializationService specializationService, UniversityService universityService, NewsService newsService,
+//                                 TagService tagService) {
 //        return args -> {
+//            Tag grants = tagService.save(new Tag("Гранты"));
+//            Tag aitu = tagService.save(new Tag("Astana IT"));
+//
+//            News news1 = newsService.save(new News("Гранты", "Гранты", true));
+//            News news2 = newsService.save(new News("AITU", "AITU", false));
+//            News news3 = newsService.save(new News("Test", "Test", false));
+//            News news4 = newsService.save(new News("Стипендии", "Стипендии", true));
+//
+//            newsService.addTagToNews(grants, news1);
+//            newsService.addTagToNews(grants, news4);
+//            newsService.addTagToNews(aitu, news2);
+//            newsService.addTagToNews(aitu, news3);
 //            Type realistic = typeService.save(new Type("Реалистический тип",
 //                    "Примеры профессий: Механик, электрик, инженер, фермер, зоотехник, геолог, гравер, агроном, садовод, автослесарь, шофер, пилот, полицейский, охранник (телохранитель), сварщик, стоматолог."));
 //            Type intelligent = typeService.save(new Type("Интеллектуальный тип",
