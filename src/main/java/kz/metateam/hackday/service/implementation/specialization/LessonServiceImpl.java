@@ -1,6 +1,7 @@
 package kz.metateam.hackday.service.implementation.specialization;
 
 import kz.metateam.hackday.models.specialties.Lesson;
+import kz.metateam.hackday.models.specialties.Specialization;
 import kz.metateam.hackday.repository.LessonRepository;
 import kz.metateam.hackday.service.LessonService;
 import lombok.RequiredArgsConstructor;
@@ -42,5 +43,11 @@ public class LessonServiceImpl implements LessonService {
     @Override
     public List<Lesson> findAll() {
         return lessonRepository.findAll();
+    }
+
+    @Override
+    public void addSpecializationToLesson(Specialization specialization, Lesson lesson) {
+        Lesson lesson1 = findById(lesson.getId());
+        lesson1.getSpecializationSet().add(specialization);
     }
 }

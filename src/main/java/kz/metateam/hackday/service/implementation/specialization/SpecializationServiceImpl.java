@@ -43,4 +43,6 @@ public class SpecializationServiceImpl implements SpecializationService {
     public List<Specialization> findAll() {
         return specializationRepository.findAll();
     }
+
+
 }

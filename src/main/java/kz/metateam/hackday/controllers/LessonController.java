@@ -26,6 +26,6 @@ public class LessonController {
     @GetMapping("/{id}")
     public ResponseEntity<?> findAllSpecializationByLesson(@PathVariable("id") Long id){
         Lesson lesson = lessonService.findById(id);
-        return ResponseEntity.status(HttpStatus.ACCEPTED).body(lesson.getSpecializationSet());
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(lesson);
     }
 }
