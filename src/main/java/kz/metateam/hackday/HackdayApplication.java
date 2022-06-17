@@ -177,7 +177,12 @@ public class HackdayApplication {
             Question question42 = questionService.save(new Question(answer42, answer42B));
 
 
-            Lesson lesson = lessonService.save(new Lesson("Математика", ""));
+            Lesson math = lessonService.save(new Lesson("Математика", "Математика"));
+            Lesson lesson = lessonService.save(new Lesson("Математика", "Математика"));
+            Lesson lesson = lessonService.save(new Lesson("Математика", "Математика"));
+            Lesson lesson = lessonService.save(new Lesson("Математика", "Математика"));
+            Lesson lesson = lessonService.save(new Lesson("Математика", "Математика"));
+            Lesson lesson = lessonService.save(new Lesson("Математика", "Математика"));
 
 //            realistic.getAnswerList().add(answer1);
 //            realistic.getAnswerList().add(answer2);

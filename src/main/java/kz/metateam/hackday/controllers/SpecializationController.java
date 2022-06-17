@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @Slf4j
 @RequiredArgsConstructor
-@RequestMapping("/specialization")
+@RequestMapping("/specializations")
 public class SpecializationController {
     private final SpecializationService specializationService;
 

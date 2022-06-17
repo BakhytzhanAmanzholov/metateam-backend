@@ -4,9 +4,11 @@ import kz.metateam.hackday.models.Account;
 import kz.metateam.hackday.models.Role;
 import kz.metateam.hackday.models.test.Answer;
 import kz.metateam.hackday.models.test.Question;
+import kz.metateam.hackday.models.test.Type;
 import kz.metateam.hackday.service.AccountService;
 import kz.metateam.hackday.service.AnswerService;
 import kz.metateam.hackday.service.QuestionService;
+import kz.metateam.hackday.service.TypeService;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -27,6 +29,7 @@ public class UserController {
     private final AccountService accountService;
     private final QuestionService questionService;
     private final AnswerService answerService;
+    private final TypeService typeService;
 
     private List<Long> longs = new ArrayList<>();
 
@@ -64,16 +67,28 @@ public class UserController {
         return ResponseEntity.ok(new QuestionData(answerA, answerB));
     }
     @PostMapping("/test/{qid}/{aid}")
-    public ResponseEntity<?> answer(@PathVariable("qid") Long qid, @PathVariable("aid") Long aid) {
+    public ResponseEntity<Test> answer(@PathVariable("qid") Long qid, @PathVariable("aid") Long aid) {
         Question question = questionService.findById(qid);
         Answer answer = answerService.findById(aid);
         longs = accountService.test(question, answer, longs);
         if(longs.get(0)!=-1){
             test(longs.get(0));
         }
-        return new ResponseEntity<>("The test has been completed successfully.", HttpStatus.OK);
+        return ResponseEntity.ok(new Test(typeService.findAll(), longs));
     }
 
+}
+
+@Data
+class Test{
+    private List<Type> types;
+    private List<Long> longs;
+
+    public Test(List<Type> types, List<Long> longs) {
+        this.types = types;
+        this.longs = longs;
+        this.longs.remove(0);
+    }
 }
 
 @Data
