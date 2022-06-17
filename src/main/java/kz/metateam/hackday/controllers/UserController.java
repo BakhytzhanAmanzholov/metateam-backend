@@ -55,6 +55,7 @@ public class UserController {
     @GetMapping("/test")
     public ResponseEntity<?> startTest(){
         Question question = questionService.findAll().stream().findFirst().orElseThrow(IllegalArgumentException::new);
+        longs = new ArrayList<>();
         test(question.getId());
         return new ResponseEntity<>("The test has been completed successfully.", HttpStatus.OK);
     }

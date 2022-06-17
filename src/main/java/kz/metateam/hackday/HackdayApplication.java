@@ -1,13 +1,11 @@
 package kz.metateam.hackday;
 
 import kz.metateam.hackday.models.specialties.Lesson;
+import kz.metateam.hackday.models.specialties.Specialization;
 import kz.metateam.hackday.models.test.Answer;
 import kz.metateam.hackday.models.test.Question;
 import kz.metateam.hackday.models.test.Type;
-import kz.metateam.hackday.service.AnswerService;
-import kz.metateam.hackday.service.LessonService;
-import kz.metateam.hackday.service.QuestionService;
-import kz.metateam.hackday.service.TypeService;
+import kz.metateam.hackday.service.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -32,7 +30,7 @@ public class HackdayApplication {
 
     @Bean
     public CommandLineRunner run(TypeService typeService, QuestionService questionService, AnswerService answerService,
-            LessonService lessonService) {
+            LessonService lessonService, SpecializationService specializationService) {
         return args -> {
             Type realistic = typeService.save(new Type("Реалистический тип",
                     "Примеры профессий: Механик, электрик, инженер, фермер, зоотехник, геолог, гравер, агроном, садовод, автослесарь, шофер, пилот, полицейский, охранник (телохранитель), сварщик, стоматолог."));
@@ -178,11 +176,25 @@ public class HackdayApplication {
 
 
             Lesson math = lessonService.save(new Lesson("Математика", "Математика"));
-            Lesson lesson = lessonService.save(new Lesson("Математика", "Математика"));
-            Lesson lesson = lessonService.save(new Lesson("Математика", "Математика"));
-            Lesson lesson = lessonService.save(new Lesson("Математика", "Математика"));
-            Lesson lesson = lessonService.save(new Lesson("Математика", "Математика"));
-            Lesson lesson = lessonService.save(new Lesson("Математика", "Математика"));
+            Lesson physics = lessonService.save(new Lesson("Физика", "Физика"));
+            Lesson chemistry = lessonService.save(new Lesson("Химия", "Химия"));
+            Lesson biology = lessonService.save(new Lesson("Биология", "Биология"));
+
+            Specialization technology = specializationService.save(new Specialization("Информафионные технологии", "Информационные технологии"));
+            Specialization security = specializationService.save(new Specialization("Информафионная безопасность", "Информафионная безопасность"));
+            math.getSpecializationSet().add(technology);
+            math.getSpecializationSet().add(security);
+            physics.getSpecializationSet().add(technology);
+            physics.getSpecializationSet().add(security);
+
+            Specialization chemPhysics = specializationService.save(new Specialization("Химическая инженерия и  процессы", "Химическая инженерия и  процессы"));
+            chemistry.getSpecializationSet().add(chemPhysics);
+            physics.getSpecializationSet().add(chemPhysics);
+
+            Specialization sreda = specializationService.save(new Specialization("Экология", "Экология"));
+            biology.getSpecializationSet().add(sreda);
+
+
 
 //            realistic.getAnswerList().add(answer1);
 //            realistic.getAnswerList().add(answer2);
