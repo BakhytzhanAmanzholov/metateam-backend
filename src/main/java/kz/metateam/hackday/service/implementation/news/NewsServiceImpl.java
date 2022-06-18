@@ -52,7 +52,7 @@ public class NewsServiceImpl implements NewsService {
 
     @Override
     public List<News> findAllByTags(Set<Tag> tagSet) {
-        return newsRepository.findAllByTagSetIn(tagSet); // TODO: протестировать
+        return newsRepository.findAllByTagSetIn(tagSet);
     }
 
     @Override

@@ -25,7 +25,10 @@ public class QuestionServiceImpl implements QuestionService {
 
     @Override
     public Question update(Question entity) {
-        return null; // TODO: исправить
+        Question question = findById(entity.getId());
+        question.setAnswerA(entity.getAnswerA());
+        question.setAnswerB(entity.getAnswerB());
+        return question;
     }
 
     @Override

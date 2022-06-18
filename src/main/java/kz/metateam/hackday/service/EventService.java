@@ -11,4 +11,5 @@ import java.util.Set;
 public interface EventService extends CrudService<Event, Long> {
     void addCategoryToEvent(Category category, Event event);
     List<Event> findAllByCategorySetIn(Set<Category> categorySet);
+    Event findByName(String name);
 }

@@ -1,5 +1,6 @@
 package kz.metateam.hackday.controllers;
 
+import kz.metateam.hackday.dto.LessonDto;
 import kz.metateam.hackday.models.specialties.Lesson;
 import kz.metateam.hackday.models.specialties.Specialization;
 import kz.metateam.hackday.service.LessonService;
@@ -7,10 +8,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Set;
 
@@ -38,5 +36,15 @@ public class LessonController {
         Set<Specialization> specializations = lesson1.getSpecializationSet();
         specializations.retainAll(lesson2.getSpecializationSet());
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(specializations);
+    }
+
+    @PostMapping
+    public ResponseEntity<?> create(@RequestBody LessonDto lessonDto){
+        if(lessonService.findByName(lessonDto.getName())!=null){
+            return new ResponseEntity<>("Данный предмет уже создан", HttpStatus.BAD_REQUEST);
+        }
+        Lesson lesson = new Lesson(lessonDto.getName(),lessonDto.getDescription());
+        lessonService.save(lesson);
+        return new ResponseEntity<>("Предмет успешно создан", HttpStatus.OK);
     }
 }

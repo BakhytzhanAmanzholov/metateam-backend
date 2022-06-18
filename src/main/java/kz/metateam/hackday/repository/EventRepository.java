@@ -10,4 +10,5 @@ import java.util.Set;
 
 public interface EventRepository extends JpaRepository<Event, Long> {
     List<Event> findAllByCategorySetIn(Set<Category> categorySet);
+    Event findByName(String name);
 }

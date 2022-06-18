@@ -56,6 +56,11 @@ public class EventServiceImpl implements EventService {
 
     @Override
     public List<Event> findAllByCategorySetIn(Set<Category> categorySet) {
-        return eventRepository.findAllByCategorySetIn(categorySet); // TODO : тестировать
+        return eventRepository.findAllByCategorySetIn(categorySet);
+    }
+
+    @Override
+    public Event findByName(String name) {
+        return eventRepository.findByName(name);
     }
 }

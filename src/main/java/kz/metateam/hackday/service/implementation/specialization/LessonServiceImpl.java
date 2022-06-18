@@ -50,4 +50,9 @@ public class LessonServiceImpl implements LessonService {
         Lesson lesson1 = findById(lesson.getId());
         lesson1.getSpecializationSet().add(specialization);
     }
+
+    @Override
+    public Lesson findByName(String name) {
+        return lessonRepository.findByName(name);
+    }
 }

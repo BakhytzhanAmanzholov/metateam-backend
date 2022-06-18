@@ -1,5 +1,7 @@
 package kz.metateam.hackday.controllers;
 
+import kz.metateam.hackday.dto.SpecializationDto;
+import kz.metateam.hackday.models.specialties.Lesson;
 import kz.metateam.hackday.models.specialties.Specialization;
 import kz.metateam.hackday.models.specialties.University;
 import kz.metateam.hackday.service.SpecializationService;
@@ -36,6 +38,17 @@ public class SpecializationController {
         List<University> universities = universityService.findAllBySpecializations((specializations));
         return ResponseEntity.ok(new FullInfoAboutSpecialization(specialization,
                 universities, (long) universities.size()));
+    }
+
+    @PostMapping
+    public ResponseEntity<?> create(@RequestBody SpecializationDto specializationDto){
+        if(specializationService.findByName(specializationDto.getName())!=null){
+            return new ResponseEntity<>("Данная профессия уже создана", HttpStatus.BAD_REQUEST);
+        }
+        Specialization specialization = new Specialization(specializationDto.getName(), specializationDto.getDescription(),
+                specializationDto.getLessonA(), specializationDto.getLessonB(), specializationDto.getMinMark(), specializationDto.getCode());
+        specializationService.save(specialization);
+        return new ResponseEntity<>("Профессия успешно создан", HttpStatus.OK);
     }
 
 }

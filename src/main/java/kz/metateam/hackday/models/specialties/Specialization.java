@@ -17,14 +17,16 @@ public class Specialization {
     private String name;
     private String description;
     private String lessonA;
+    private String code;
     private String lessonB;
     private int minMark;
 
-    public Specialization(String name, String description, String lessonA, String lessonB, int minMark) {
+    public Specialization(String name, String description, String lessonA, String lessonB, int minMark, String code) {
         this.name = name;
         this.description = description;
         this.lessonA = lessonA;
         this.lessonB = lessonB;
         this.minMark = minMark;
+        this.code = code;
     }
 }

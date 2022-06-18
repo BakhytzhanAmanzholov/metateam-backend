@@ -9,4 +9,5 @@ import java.util.Set;
 public interface FaqCategoryService extends CrudService<FaqCategory, Long> {
     FaqCategory findCategoryByQuestion(Set<FaqQuestion> faqQuestionSet);
     void addQuestionToCategory(FaqQuestion faqQuestion, FaqCategory faqCategory);
+    FaqCategory findByName(String name);
 }

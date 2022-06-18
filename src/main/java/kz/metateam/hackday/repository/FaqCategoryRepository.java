@@ -9,4 +9,5 @@ import java.util.Set;
 
 public interface FaqCategoryRepository extends JpaRepository<FaqCategory, Long> {
     FaqCategory findByQuestionSetIn(Collection<Set<FaqQuestion>> questionSet);
+    FaqCategory findByName(String name);
 }

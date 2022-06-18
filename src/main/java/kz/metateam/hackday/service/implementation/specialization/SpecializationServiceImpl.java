@@ -44,5 +44,8 @@ public class SpecializationServiceImpl implements SpecializationService {
         return specializationRepository.findAll();
     }
 
-
+    @Override
+    public Specialization findByName(String name) {
+        return specializationRepository.findByName(name);
+    }
 }

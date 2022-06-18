@@ -57,4 +57,9 @@ public class UniversityServiceImpl implements UniversityService {
     public List<University> findAllBySpecializations(Set<Specialization> specializationList) {
         return universityRepository.findAllBySpecializationsIn(specializationList);
     }
+
+    @Override
+    public University findByName(String name) {
+        return universityRepository.findByName(name);
+    }
 }

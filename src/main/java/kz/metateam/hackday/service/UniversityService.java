@@ -9,4 +9,5 @@ import java.util.Set;
 public interface UniversityService extends CrudService<University, Long> {
     void addSpecializationToUniversity(Specialization specialization, University university);
     List<University> findAllBySpecializations(Set<Specialization> specializationList);
+    University findByName(String name);
 }

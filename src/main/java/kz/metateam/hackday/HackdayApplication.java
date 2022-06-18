@@ -1,5 +1,6 @@
 package kz.metateam.hackday;
 
+import kz.metateam.hackday.models.Role;
 import kz.metateam.hackday.models.event.Category;
 import kz.metateam.hackday.models.event.Event;
 import kz.metateam.hackday.models.faq.FaqCategory;
@@ -39,8 +40,10 @@ public class HackdayApplication {
 //    public CommandLineRunner run(TypeService typeService, QuestionService questionService, AnswerService answerService,
 //                                 LessonService lessonService, SpecializationService specializationService, UniversityService universityService, NewsService newsService,
 //                                 TagService tagService, CategoryService categoryService, EventService eventService,
-//                                 FaqCategoryService faqCategoryService, FaqQuestionService faqQuestionService) {
+//                                 FaqCategoryService faqCategoryService, FaqQuestionService faqQuestionService,
+//                                 RoleService roleService) {
 //        return args -> {
+//            Role role = roleService.save(new Role("ROLE_USER"));
 //            FaqCategory faqCategory = faqCategoryService.save(new FaqCategory("Гранты"));
 //            faqQuestionService.saveQ(new FaqQuestion("Вопрос1", "Ответ"),faqCategory);
 //
@@ -50,7 +53,7 @@ public class HackdayApplication {
 //            faqQuestionService.saveQ(new FaqQuestion("Вопрос1", "Ответ"), faqCategory1);
 //
 //            faqQuestionService.saveQ(new FaqQuestion("Вопрос2", "Ответ"), faqCategory1);
-
+//
 //            Category category1 = categoryService.save(new Category("Програмирование"));
 //            Event event1 = eventService.save(new Event("Хакатон", "Астана"));
 //            eventService.addCategoryToEvent(category1, event1);
@@ -58,9 +61,9 @@ public class HackdayApplication {
 //            Category category2 = categoryService.save(new Category("Математика"));
 //            Event event2 = eventService.save(new Event("Соревнование", "Астана"));
 //            eventService.addCategoryToEvent(category2, event2);
-
+//
 //            Tag grants = tagService.save(new Tag("Гранты"));
-//            Tag aitu = tagService.save(new Tag("Astana IT"));
+//            Tag aitutag = tagService.save(new Tag("Astana IT"));
 //
 //            News news1 = newsService.save(new News("Гранты", "Гранты", true));
 //            News news2 = newsService.save(new News("AITU", "AITU", false));
@@ -69,8 +72,8 @@ public class HackdayApplication {
 //
 //            newsService.addTagToNews(grants, news1);
 //            newsService.addTagToNews(grants, news4);
-//            newsService.addTagToNews(aitu, news2);
-//            newsService.addTagToNews(aitu, news3);
+//            newsService.addTagToNews(aitutag, news2);
+//            newsService.addTagToNews(aitutag, news3);
 //            Type realistic = typeService.save(new Type("Реалистический тип",
 //                    "Примеры профессий: Механик, электрик, инженер, фермер, зоотехник, геолог, гравер, агроном, садовод, автослесарь, шофер, пилот, полицейский, охранник (телохранитель), сварщик, стоматолог."));
 //            Type intelligent = typeService.save(new Type("Интеллектуальный тип",
@@ -220,19 +223,19 @@ public class HackdayApplication {
 //            Lesson biology = lessonService.save(new Lesson("Биология", "Биология"));
 //            Lesson geo = lessonService.save(new Lesson("География", "География"));
 //
-//            Specialization technology = specializationService.save(new Specialization("Информафионные технологии", "Информационные технологии", math.getName(), physics.getName(), 106));
-//            Specialization security = specializationService.save(new Specialization("Информафионная безопасность", "Информафионная безопасность", math.getName(), physics.getName(), 81));
+//            Specialization technology = specializationService.save(new Specialization("Информафионные технологии", "Информационные технологии", math.getName(), physics.getName(), 106, "B057"));
+//            Specialization security = specializationService.save(new Specialization("Информафионная безопасность", "Информафионная безопасность", math.getName(), physics.getName(), 81, "B058"));
 //            lessonService.addSpecializationToLesson(security, math);
 //            lessonService.addSpecializationToLesson(technology, math);
 //            lessonService.addSpecializationToLesson(security, physics);
 //            lessonService.addSpecializationToLesson(technology, physics);
 //
 //
-//            Specialization chemPhysics = specializationService.save(new Specialization("Химическая инженерия и  процессы", "Химическая инженерия и  процессы", chemistry.getName(), physics.getName(), 50));
+//            Specialization chemPhysics = specializationService.save(new Specialization("Химическая инженерия и  процессы", "Химическая инженерия и  процессы", chemistry.getName(), physics.getName(), 50, "B060"));
 //            lessonService.addSpecializationToLesson(chemPhysics, chemistry);
 //            lessonService.addSpecializationToLesson(chemPhysics, physics);
 //
-//            Specialization sreda = specializationService.save(new Specialization("Экология", "Экология", biology.getName(), geo.getName(), 73));
+//            Specialization sreda = specializationService.save(new Specialization("Экология", "Экология", biology.getName(), geo.getName(), 73, "B051"));
 //            lessonService.addSpecializationToLesson(sreda, biology);
 //            lessonService.addSpecializationToLesson(sreda, geo);
 //

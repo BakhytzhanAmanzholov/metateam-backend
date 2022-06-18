@@ -59,4 +59,9 @@ public class FaqCategoryServiceImpl implements FaqCategoryService {
         FaqCategory category = findById(faqCategory.getId());
         category.getQuestionSet().add(faqQuestion);
     }
+
+    @Override
+    public FaqCategory findByName(String name) {
+        return faqCategoryRepository.findByName(name);
+    }
 }
