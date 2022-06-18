@@ -2,6 +2,8 @@ package kz.metateam.hackday;
 
 import kz.metateam.hackday.models.event.Category;
 import kz.metateam.hackday.models.event.Event;
+import kz.metateam.hackday.models.faq.FaqCategory;
+import kz.metateam.hackday.models.faq.FaqQuestion;
 import kz.metateam.hackday.models.news.News;
 import kz.metateam.hackday.models.news.Tag;
 import kz.metateam.hackday.models.specialties.Lesson;
@@ -36,8 +38,19 @@ public class HackdayApplication {
 //    @Bean
 //    public CommandLineRunner run(TypeService typeService, QuestionService questionService, AnswerService answerService,
 //                                 LessonService lessonService, SpecializationService specializationService, UniversityService universityService, NewsService newsService,
-//                                 TagService tagService, CategoryService categoryService, EventService eventService) {
+//                                 TagService tagService, CategoryService categoryService, EventService eventService,
+//                                 FaqCategoryService faqCategoryService, FaqQuestionService faqQuestionService) {
 //        return args -> {
+//            FaqCategory faqCategory = faqCategoryService.save(new FaqCategory("Гранты"));
+//            faqQuestionService.saveQ(new FaqQuestion("Вопрос1", "Ответ"),faqCategory);
+//
+//            faqQuestionService.saveQ(new FaqQuestion("Вопрос2", "Ответ"), faqCategory);
+//
+//            FaqCategory faqCategory1 = faqCategoryService.save(new FaqCategory("Университеты"));
+//            faqQuestionService.saveQ(new FaqQuestion("Вопрос1", "Ответ"), faqCategory1);
+//
+//            faqQuestionService.saveQ(new FaqQuestion("Вопрос2", "Ответ"), faqCategory1);
+
 //            Category category1 = categoryService.save(new Category("Програмирование"));
 //            Event event1 = eventService.save(new Event("Хакатон", "Астана"));
 //            eventService.addCategoryToEvent(category1, event1);
